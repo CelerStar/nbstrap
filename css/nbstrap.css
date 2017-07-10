@@ -1,0 +1,102 @@
+/*!
+ * NBstrap v1.0.0
+ * Copyright 2017-2018 NBuilder, Inc.
+ * Licensed under MIT
+ */
+.nb-col {
+	height: 100%;
+}
+
+.nb-col .nb-row-xs-10::-webkit-scrollbar {
+	width: 0px;
+}
+
+.nb-col .nb-row-xs-9::-webkit-scrollbar {
+	width: 0px;
+}
+
+.nb-col .nb-row-xs-8::-webkit-scrollbar {
+	width: 0px;
+}
+
+.nb-col .nb-row-xs-7::-webkit-scrollbar {
+	width: 0px;
+}
+
+.nb-col .nb-row-xs-8::-webkit-scrollbar {
+	width: 0px;
+}
+
+.nb-col .nb-row-xs-6::-webkit-scrollbar {
+	width: 0px;
+}
+
+.nb-col .nb-row-xs-5::-webkit-scrollbar {
+	width: 0px;
+}
+
+.nb-col .nb-row-xs-4::-webkit-scrollbar {
+	width: 0px;
+}
+
+.nb-col .nb-row-xs-3::-webkit-scrollbar {
+	width: 0px;
+}
+
+.nb-col .nb-row-xs-2::-webkit-scrollbar {
+	width: 0px;
+}
+
+.nb-col .nb-row-xs-1::-webkit-scrollbar {
+	width: 0px;
+}
+
+.nb-row-xs-10 {
+	height: 100%;
+	overflow-y: scroll;
+}
+
+.nb-row-xs-9 {
+	height: 90%;
+	overflow-y: scroll;
+}
+
+.nb-row-xs-8 {
+	height: 80%;
+	overflow-y: scroll;
+}
+
+.nb-row-xs-7 {
+	height: 70%;
+	overflow-y: scroll;
+}
+
+.nb-row-xs-6 {
+	height: 60%;
+	overflow-y: scroll;
+}
+
+.nb-row-xs-5 {
+	height: 50%;
+	overflow-y: scroll;
+}
+
+.nb-row-xs-4 {
+	height: 40%;
+	overflow-y: scroll;
+}
+
+.nb-row-xs-3 {
+	height: 30%;
+	overflow-y: scroll;
+}
+
+.nb-row-xs-2 {
+	height: 20%;
+	overflow-y: scroll;
+}
+
+.nb-row-xs-1 {
+	height: 10%;
+	overflow-y: scroll;
+}
