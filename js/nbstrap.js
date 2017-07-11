@@ -11,7 +11,7 @@ $(window).ready(function() {
 	nbuilderWindowHeight = $(window).height();
 	nbuilderTitlebarHeight = $(".nb-titlebar").height();
 	nbuilderContentHeight = nbuilderWindowHeight - nbuilderTitlebarHeight;
-	
+
 	nbuilder_resize();
 });
 
@@ -19,12 +19,16 @@ $(window).resize(function() {
 	nbuilderWindowHeight = $(window).height();
 	nbuilderTitlebarHeight = $(".nb-titlebar").height();
 	nbuilderContentHeight = nbuilderWindowHeight - nbuilderTitlebarHeight;
-	
+
 	nbuilder_resize();
 });
 
 function nbuilder_resize() {
 	$(".nb-window").height(nbuilderWindowHeight);
 	$(".nb-content").height(nbuilderContentHeight);
-	
+
+}
+
+document.onselectstart = function() {
+	return false;
 }
