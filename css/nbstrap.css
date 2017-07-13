@@ -1,16 +1,25 @@
 /*!
- * NBstrap v1.0.0
+ * NBstrap v1.2.0
  * Copyright 2017-2018 NBuilder, Inc.
  * Licensed under MIT
  */
 
+.nb-container-fluid {
+	height: 100%;
+}
+
+
 .nb-col {
 	height: 100%;
+	overflow-y: scroll;
+}
+
+.nb-col::-webkit-scrollbar {
+	width: 0px;
 }
 
 .nb-col .nb-row-xs-12::-webkit-scrollbar {
 	width: 0px;
-	
 }
 
 .nb-col .nb-row-xs-11::-webkit-scrollbar {
@@ -70,6 +79,7 @@
 	height: 91.66666667%;
 	overflow-y: scroll;
 }
+
 .nb-row-xs-10 {
 	height: 83.33333333%;
 	overflow-y: scroll;
@@ -119,3 +129,30 @@
 	height: 8.33333333%;
 	overflow-y: scroll;
 }
+
+
+/*导航条拖动*/
+
+.nb-titlebar {
+	-webkit-app-region: drag;
+}
+
+
+/*导航条按键*/
+
+.nb-titlebar-btn {
+	-webkit-app-region: no-drag;
+	cursor: pointer
+}
+
+/*导航条元素*/
+
+.nb-titlebar-element {
+	-webkit-app-region: no-drag;
+}
+
+.nb-win-close {}
+
+.nb-win-max {}
+
+.nb-win-min {}
