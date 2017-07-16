@@ -19,7 +19,7 @@ $(window).ready(function() {
 	nbuilderWindowHeight = $(window).height();
 	nbuilderTitlebarHeight = $(".nb-titlebar").height();
 	nbuilderContentHeight = nbuilderWindowHeight - nbuilderTitlebarHeight;
-	
+
 	nbuilder_resize();
 
 	nbuilderWindowObject = nw.Window.get();
@@ -67,7 +67,6 @@ function nbuilder_resize() {
 document.onselectstart = function() {
 	return false;
 }
-
 
 //关闭窗体事件
 $(".nb-win-close").click(function() {
