@@ -1,5 +1,5 @@
 /*!
- * NBstrap v1.2.0
+ * NBstrap v1.3.0
  * Copyright 2017-2018 NBuilder, Inc.
  * Licensed under MIT
  */
@@ -19,6 +19,9 @@ $(window).ready(function() {
 	nbuilderWindowHeight = $(window).height();
 	nbuilderTitlebarHeight = $(".nb-titlebar").height();
 	nbuilderContentHeight = nbuilderWindowHeight - nbuilderTitlebarHeight;
+	
+	nbuilder_resize();
+
 	nbuilderWindowObject = nw.Window.get();
 
 	nbuilderWindowObject.on('maximize', function() {
@@ -28,7 +31,6 @@ $(window).ready(function() {
 	nbuilderWindowObject.on('restore', function() {
 		nbuilderWindowMaxState = false;
 	});
-	nbuilder_resize();
 });
 
 /*

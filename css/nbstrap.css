@@ -1,13 +1,26 @@
 /*!
- * NBstrap v1.2.0
+ * NBstrap v1.3.0
  * Copyright 2017-2018 NBuilder, Inc.
  * Licensed under MIT
  */
 
+body,
+button,
+input,
+select,
+textarea,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: Microsoft YaHei;
+}
+
 .nb-container-fluid {
 	height: 100%;
 }
-
 
 .nb-col {
 	height: 100%;
@@ -144,6 +157,7 @@
 	-webkit-app-region: no-drag;
 	cursor: pointer
 }
+
 
 /*导航条元素*/
 
