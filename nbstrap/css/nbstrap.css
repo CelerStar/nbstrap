@@ -22,6 +22,16 @@ h6 {
 	height: 100%;
 }
 
+.nb-boder-shadow {
+	margin: 5px;
+	-webkit-box-shadow: 0px 0px 5px rgba(128, 128, 128, .5);
+	background: transparent;
+}
+
+.nb-background-default {
+	background: #ffffff;
+}
+
 .nb-col {
 	height: 100%;
 	margin-top: 0px;
@@ -29,7 +39,6 @@ h6 {
 	overflow-y: scroll;
 	position: relative;
 }
-
 
 .nb-pull-bottom {
 	position: absolute;

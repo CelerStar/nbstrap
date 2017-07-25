@@ -1,5 +1,5 @@
 /*!
- * NBstrap v1.5.0
+ * NBstrap v1.6.0
  * Copyright 2017-2018 NBuilder, Inc.
  * Licensed under MIT
  */
@@ -16,8 +16,8 @@ var nbuilderWindowMaxState = false; //大小对象
  * 描述：
  */
 $(window).ready(function() {
-	nbuilderWindowHeight = $(window).height();
-	nbuilderTitlebarHeight = $(".nb-titlebar").height();
+	nbuilderWindowHeight = $(window).outerHeight(true);
+	nbuilderTitlebarHeight = $(".nb-titlebar").outerHeight(true);
 	nbuilderContentHeight = nbuilderWindowHeight - nbuilderTitlebarHeight;
 
 	nbuilder_resize();
@@ -40,8 +40,8 @@ $(window).ready(function() {
  * 描述：
  */
 $(window).resize(function() {
-	nbuilderWindowHeight = $(window).height();
-	nbuilderTitlebarHeight = $(".nb-titlebar").height();
+	nbuilderWindowHeight = $(window).outerHeight(true);
+	nbuilderTitlebarHeight = $(".nb-titlebar").outerHeight(true);
 	nbuilderContentHeight = nbuilderWindowHeight - nbuilderTitlebarHeight;
 
 	nbuilder_resize();
@@ -54,8 +54,12 @@ $(window).resize(function() {
  * 描述：
  */
 function nbuilder_resize() {
-	$(".nb-window").height(nbuilderWindowHeight); //设置最大框架高度
-	$(".nb-content").height(nbuilderContentHeight); //设置包含高度
+	bodyOuterHeight = $(document.body).outerHeight(true) - $(document.body).height();
+	nbWindowOuterHeight = $(".nb-content").outerHeight(true) - $(".nb-content").height();
+	nbTitlebarOuterHeight = $(".nb-titlebar").outerHeight(true) - $(".nb-titlebar").height();
+
+	$(".nb-window").height(nbuilderWindowHeight - bodyOuterHeight); //设置最大框架高度
+	$(".nb-content").height(nbuilderContentHeight - nbTitlebarOuterHeight - nbWindowOuterHeight - bodyOuterHeight); //设置包含高度
 }
 
 /*
