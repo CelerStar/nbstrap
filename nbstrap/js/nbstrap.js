@@ -1,5 +1,5 @@
 /*!
- * NBstrap v1.7.0
+ * NBstrap v1.8.0
  * Copyright 2017-2018 NBuilder, Inc.
  * Licensed under MIT
  */
@@ -8,7 +8,7 @@ var nbuilderTitlebarHeight = 0; //标题高度
 var nbuilderContentHeight = 0; //内容高度
 var nbuilderWindowObject; //窗体对象
 var nbuilderWindowMaxState = false; //大小对象
-
+var nbuilderWindowBoderShadowState = false;
 /*
  * 名称：页面 ready 事件
  * 输入：
@@ -20,20 +20,31 @@ $(window).ready(function() {
 	nbuilderTitlebarHeight = $(".nb-titlebar").outerHeight(true);
 	nbuilderContentHeight = nbuilderWindowHeight - nbuilderTitlebarHeight;
 
+	if($("body").hasClass("nb-boder-shadow")) {
+		nbuilderWindowBoderShadowState = true;
+	}
 	nbuilder_resize();
 
 	nbuilderWindowObject = nw.Window.get();
 
 	nbuilderWindowObject.on('maximize', function() {
-		$("body").removeClass("nb-boder-shadow");
+
+		if(nbuilderWindowBoderShadowState == true) {
+			$("body").removeClass("nb-boder-shadow");
+		}
+
 		nbuilderWindowMaxState = true;
 
 	});
 
 	nbuilderWindowObject.on('restore', function() {
-		$("body").addClass("nb-boder-shadow");
-		nbuilderWindowMaxState = false;
-		nbuilder_resize();
+
+		if(nbuilderWindowBoderShadowState == true) {
+			$("body").addClass("nb-boder-shadow");
+			nbuilder_resize()
+		}
+
+		nbuilderWindowMaxState = false;;
 	});
 });
 
