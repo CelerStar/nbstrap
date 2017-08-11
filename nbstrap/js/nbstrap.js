@@ -1,5 +1,5 @@
 /*!
- * NBstrap v1.6.0
+ * NBstrap v1.7.0
  * Copyright 2017-2018 NBuilder, Inc.
  * Licensed under MIT
  */
@@ -25,11 +25,15 @@ $(window).ready(function() {
 	nbuilderWindowObject = nw.Window.get();
 
 	nbuilderWindowObject.on('maximize', function() {
+		$("body").removeClass("nb-boder-shadow");
 		nbuilderWindowMaxState = true;
+
 	});
 
 	nbuilderWindowObject.on('restore', function() {
+		$("body").addClass("nb-boder-shadow");
 		nbuilderWindowMaxState = false;
+		nbuilder_resize();
 	});
 });
 
@@ -81,8 +85,10 @@ $(".nb-win-close").click(function() {
 $(".nb-win-max").click(function() {
 	if(nbuilderWindowMaxState == false) {
 		nbuilderWindowObject.maximize();
+
 	} else {
 		nbuilderWindowObject.restore()
+
 	}
 });
 
