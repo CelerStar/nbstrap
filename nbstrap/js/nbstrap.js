@@ -1,11 +1,10 @@
 /*!
- * NBstrap v1.9.0
+ * NBstrap v2.0.0
  * Copyright 2017-2018 NBuilder, Inc.
  * Licensed under MIT
  */
 var nbuilderWindowHeight = 0; //窗体高度
-var nbuilderTitlebarHeight = 0; //标题高度
-var nbuilderContentHeight = 0; //内容高度
+
 var nbuilderWindowObject; //窗体对象
 var nbuilderWindowMaxState = false; //大小对象
 var nbuilderWindowBoderShadowState = false;
@@ -15,14 +14,14 @@ var nbuilderWindowBoderShadowState = false;
  * 输出：
  * 描述：
  */
+
 $(window).ready(function() {
 	nbuilderWindowHeight = $(window).outerHeight(true);
-	nbuilderTitlebarHeight = $(".nb-titlebar").outerHeight(true);
-	nbuilderContentHeight = nbuilderWindowHeight - nbuilderTitlebarHeight;
 
 	if($("body").hasClass("nb-boder-shadow")) {
 		nbuilderWindowBoderShadowState = true;
 	}
+
 	nbuilder_resize();
 
 	nbuilderWindowObject = nw.Window.get();
@@ -56,9 +55,6 @@ $(window).ready(function() {
  */
 $(window).resize(function() {
 	nbuilderWindowHeight = $(window).outerHeight(true);
-	nbuilderTitlebarHeight = $(".nb-titlebar").outerHeight(true);
-	nbuilderContentHeight = nbuilderWindowHeight - nbuilderTitlebarHeight;
-
 	nbuilder_resize();
 });
 
@@ -70,11 +66,7 @@ $(window).resize(function() {
  */
 function nbuilder_resize() {
 	bodyOuterHeight = $(document.body).outerHeight(true) - $(document.body).height();
-	nbWindowOuterHeight = $(".nb-content").outerHeight(true) - $(".nb-content").height();
-	nbTitlebarOuterHeight = $(".nb-titlebar").outerHeight(true) - $(".nb-titlebar").height();
-
 	$(".nb-window").height(nbuilderWindowHeight - bodyOuterHeight); //设置最大框架高度
-	$(".nb-content").height(nbuilderContentHeight - nbTitlebarOuterHeight - nbWindowOuterHeight - bodyOuterHeight); //设置包含高度
 }
 
 /*

@@ -1,6 +1,6 @@
 {
     "main": "example/index.html",
-    "name": "HelloWorld",
+    "name": "NBstrap",
     "nodejs": true,
     "single-instance": true,
     "window": {
@@ -20,7 +20,7 @@
         "frame": false,
         "show": true,
         "kiosk": false,
-        "transparent": true
+        "transparent": false
     },
     "webkit": {
         "plugin": false
