@@ -1,5 +1,5 @@
 /*!
- * NBstrap v2.0.0
+ * NBstrap v2.0.2
  * Copyright 2017-2018 NBuilder, Inc.
  * Licensed under MIT
  */
@@ -16,6 +16,7 @@ var nbuilderWindowBoderShadowState = false;
  */
 
 $(window).ready(function() {
+
 	nbuilderWindowHeight = $(window).outerHeight(true);
 
 	if($("body").hasClass("nb-boder-shadow")) {
@@ -24,27 +25,43 @@ $(window).ready(function() {
 
 	nbuilder_resize();
 
-	nbuilderWindowObject = nw.Window.get();
+	var gui;
 
-	nbuilderWindowObject.on('maximize', function() {
+	try {
+		gui = require('nw.gui');
+		console.log("NBuilder");
+	} catch(e) {
+		console.log("WEB");
+	}
 
-		if(nbuilderWindowBoderShadowState == true) {
-			$("body").removeClass("nb-boder-shadow");
-		}
+	if(gui) {
+		nbuilderWindowObject = nw.Window.get();　　
+	} else {
+		nbuilderWindowObject = null;　　
+	}
 
-		nbuilderWindowMaxState = true;
+	if(nbuilderWindowObject != null) {
+		nbuilderWindowObject.on('maximize', function() {
 
-	});
+			if(nbuilderWindowBoderShadowState == true) {
+				$("body").removeClass("nb-boder-shadow");
+			}
 
-	nbuilderWindowObject.on('restore', function() {
+			nbuilderWindowMaxState = true;
 
-		if(nbuilderWindowBoderShadowState == true) {
-			$("body").addClass("nb-boder-shadow");
-			nbuilder_resize()
-		}
+		});
 
-		nbuilderWindowMaxState = false;;
-	});
+		nbuilderWindowObject.on('restore', function() {
+
+			if(nbuilderWindowBoderShadowState == true) {
+				$("body").addClass("nb-boder-shadow");
+				nbuilder_resize()
+			}
+
+			nbuilderWindowMaxState = false;;
+		});
+	}
+
 });
 
 /*
