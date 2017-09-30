@@ -10,17 +10,25 @@
 
 body::-webkit-scrollbar {
 	display: none;
+
 }
 
-body {
+html,body {
 	margin: 0px;
 	border: 0px;
+	background: transparent;
+
 }
 
 .nb-boder-shadow {
-	margin: 5px;
-	-webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-	background: transparent;
+
+	-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+	/*border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;*/
+	
 }
 
 .nb-background-default {
@@ -36,6 +44,8 @@ body {
 	width: 100%;
 	margin: 0px;
 	border: 0px;
+
+
 }
 
 .nb-row {

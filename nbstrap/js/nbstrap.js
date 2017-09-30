@@ -19,7 +19,7 @@ $(window).ready(function() {
 
 	nbuilderWindowHeight = $(window).outerHeight(true);
 
-	if($("body").hasClass("nb-boder-shadow")) {
+	if($(".nb-window").hasClass("nb-boder-shadow")) {
 		nbuilderWindowBoderShadowState = true;
 	}
 
@@ -36,6 +36,27 @@ $(window).ready(function() {
 
 	if(gui) {
 		nbuilderWindowObject = nw.Window.get();　　
+//关闭窗体事件
+$(".nb-win-close").click(function() {
+	nbuilderWindowObject.close();
+});
+
+//最大化窗体事件
+$(".nb-win-max").click(function() {
+	if(nbuilderWindowMaxState == false) {
+		nbuilderWindowObject.maximize();
+
+	} else {
+		nbuilderWindowObject.restore()
+
+	}
+});
+
+//最小化窗体事件
+$(".nb-win-min").click(function() {
+	nbuilderWindowObject.minimize();
+
+});
 	} else {
 		nbuilderWindowObject = null;　　
 	}
@@ -44,7 +65,8 @@ $(window).ready(function() {
 		nbuilderWindowObject.on('maximize', function() {
 
 			if(nbuilderWindowBoderShadowState == true) {
-				$("body").removeClass("nb-boder-shadow");
+				$(".nb-window").removeClass("nb-boder-shadow");
+				nbuilder_resize();
 			}
 
 			nbuilderWindowMaxState = true;
@@ -54,11 +76,11 @@ $(window).ready(function() {
 		nbuilderWindowObject.on('restore', function() {
 
 			if(nbuilderWindowBoderShadowState == true) {
-				$("body").addClass("nb-boder-shadow");
-				nbuilder_resize()
+				$(".nb-window").addClass("nb-boder-shadow");
+				nbuilder_resize();
 			}
 
-			nbuilderWindowMaxState = false;;
+			nbuilderWindowMaxState = false;
 		});
 	}
 
@@ -96,24 +118,4 @@ document.onselectstart = function() {
 	return false;
 }
 
-//关闭窗体事件
-$(".nb-win-close").click(function() {
-	nbuilderWindowObject.close();
-});
 
-//最大化窗体事件
-$(".nb-win-max").click(function() {
-	if(nbuilderWindowMaxState == false) {
-		nbuilderWindowObject.maximize();
-
-	} else {
-		nbuilderWindowObject.restore()
-
-	}
-});
-
-//最小化窗体事件
-$(".nb-win-min").click(function() {
-	nbuilderWindowObject.minimize();
-
-});
