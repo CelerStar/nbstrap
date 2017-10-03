@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>NBstrap -- NBuilder layout UI 2.0</title>
+		<title>NBstrap -- NBuilder layout UI 2.1.0</title>
 
 		<link rel="stylesheet" type="text/css" href="../nbstrap/css/nbstrap.css" />
 
@@ -67,7 +67,11 @@
 					</div>
 
 				</div>
-				<div class="nb-layout" style="height: calc(100%); width: calc(60%); background: #FFFF00;">
+
+				<div class="nb-layout nb-drag-ew" style="width: 10px; ">
+				</div>
+
+				<div class="nb-layout" style=" height: calc(100%); width: calc(60% - 10px); background: #FFFF00;">
 					<div class="nb-layout" style="height: calc(40%);">
 						<br> NBstrap -- NBuilder layout UI
 						<br> NBstrap -- NBuilder layout UI
@@ -103,7 +107,9 @@
 						<br> NBstrap -- NBuilder layout UI
 						<br>
 					</div>
-					<div class="nb-layout" style="height: calc(60%); background: #00ff00;">
+					<div class="nb-layout nb-drag-ns" style="height: 10px; ">
+					</div>
+					<div class="nb-layout" style=" height: calc(60% - 10px); background: #00ff00;">
 						<div class="nb-layout" style="height: calc(100%); width: calc(40%);">
 							<br> NBstrap -- NBuilder layout UI
 							<br> NBstrap -- NBuilder layout UI
@@ -139,8 +145,9 @@
 							<br> NBstrap -- NBuilder layout UI
 							<br>
 						</div>
-
-						<div class="nb-layout" style="height: calc(100%); width: calc(60%); background: #00BFF2;">
+						<div class="nb-layout nb-drag-ew" style="width: 10px; ">
+						</div>
+						<div class="nb-layout" style="height: calc(100%); width: calc(60% - 10px); background: #00BFF2;">
 							<div class="nb-layout" style="height: calc(40%); width: calc(100%);">
 								<br> NBstrap -- NBuilder layout UI
 								<br> NBstrap -- NBuilder layout UI
@@ -260,6 +267,7 @@
 		</div>
 
 		<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+		<script src="vendor/jquery/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../nbstrap/js/nbstrap.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 

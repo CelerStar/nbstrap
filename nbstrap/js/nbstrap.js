@@ -1,5 +1,5 @@
 /*!
- * NBstrap v2.0.2
+ * NBstrap v2.1.0
  * Copyright 2017-2018 NBuilder, Inc.
  * Licensed under MIT
  */
@@ -36,27 +36,27 @@ $(window).ready(function() {
 
 	if(gui) {
 		nbuilderWindowObject = nw.Window.get();　　
-//关闭窗体事件
-$(".nb-win-close").click(function() {
-	nbuilderWindowObject.close();
-});
+		//关闭窗体事件
+		$(".nb-win-close").click(function() {
+			nbuilderWindowObject.close();
+		});
 
-//最大化窗体事件
-$(".nb-win-max").click(function() {
-	if(nbuilderWindowMaxState == false) {
-		nbuilderWindowObject.maximize();
+		//最大化窗体事件
+		$(".nb-win-max").click(function() {
+			if(nbuilderWindowMaxState == false) {
+				nbuilderWindowObject.maximize();
 
-	} else {
-		nbuilderWindowObject.restore()
+			} else {
+				nbuilderWindowObject.restore()
 
-	}
-});
+			}
+		});
 
-//最小化窗体事件
-$(".nb-win-min").click(function() {
-	nbuilderWindowObject.minimize();
+		//最小化窗体事件
+		$(".nb-win-min").click(function() {
+			nbuilderWindowObject.minimize();
 
-});
+		});
 	} else {
 		nbuilderWindowObject = null;　　
 	}
@@ -118,4 +118,114 @@ document.onselectstart = function() {
 	return false;
 }
 
+var xflag = false;
+var yflag = false;
 
+var prevNode;
+var nextNode;
+var thisNode;
+
+var pointStartX;
+var pointStartY;
+
+$(".nb-drag-ew").mousedown(function(e) {
+	pointStartX = e.pageX;
+
+	prevNode = $(this).prev(".nb-layout");
+	nextNode = $(this).next(".nb-layout");
+	thisNode = $(this);
+	parentNode = $(this).parent();
+
+	prevWidth = prevNode.width();
+	nextWidth = nextNode.width();
+	thisWidth = thisNode.width();
+	parentWidth = parentNode.width();
+
+	xflag = true;
+});
+
+$(".nb-drag-ns").mousedown(function(e) {
+
+	pointStartY = e.pageY;
+
+	prevNode = $(this).prev(".nb-layout");
+	nextNode = $(this).next(".nb-layout");
+	thisNode = $(this);
+	parentNode = $(this).parent();
+
+	prevHeight = prevNode.height();
+	nextHeight = nextNode.height();
+	thisHeight = thisNode.height();
+	parentHeight = parentNode.height();
+
+	yflag = true;
+});
+
+$(document).mousemove(function(e) {
+
+	if(xflag) {
+
+		var pointNowX = e.pageX;
+		var Xdistance = pointNowX - pointStartX;
+
+		var parentLeft = parentNode.offset().left;
+		var parentRight = parentLeft + parentWidth;
+
+		var thisLeft = thisNode.offset().left;
+		var thisRight = thisLeft + thisWidth;
+
+		var prevSetPercent = (prevWidth + Xdistance) / parentWidth;
+		var nextSetPercent = (nextWidth - Xdistance + thisWidth) / parentWidth;
+
+		if(prevNode.width() >= parentWidth - thisWidth && Xdistance > 0) {
+			prevNode.css('width', 'calc(100% - ' + thisWidth + 'px)');
+			nextNode.css('width', 'calc(0%)');
+			return;
+
+		}
+
+		if(prevSetPercent < 0) {
+			prevNode.css('width', 'calc(0%)');
+			nextNode.css('width', 'calc(100% - ' + thisWidth + 'px)');
+			return;
+		} else {
+			prevNode.css('width', 'calc(' + prevSetPercent * 100 + '%)');
+			nextNode.css('width', 'calc(' + nextSetPercent * 100 + '% - ' + thisWidth + 'px)');
+		}
+
+	}
+
+	if(yflag) {
+		var pointNowY = e.pageY;
+
+		var Ydistance = pointNowY - pointStartY;
+
+		var parentTop = parentNode.offset().top;
+		var parentBottom = parentTop + parentHeight;
+
+		var prevSetPercent = (prevHeight + Ydistance) / parentHeight;
+		var nextSetPercent = (nextHeight - Ydistance + thisHeight) / parentHeight;
+
+		if(prevNode.height() >= parentHeight - thisHeight && Ydistance > 0) {
+			prevNode.css('height', 'calc(100% - ' + thisHeight + 'px)');
+			nextNode.css('height', 'calc(0%)');
+			return;
+
+		}
+
+		if(prevSetPercent < 0) {
+			prevNode.css('height', 'calc(0%)');
+			nextNode.css('height', 'calc(100% - ' + thisHeight + 'px)');
+		} else {
+			prevNode.css('height', 'calc(' + prevSetPercent * 100 + '%)');
+			nextNode.css('height', 'calc(' + nextSetPercent * 100 + '% - ' + thisHeight + 'px)');
+		}
+
+	}
+
+});
+
+$(document).mouseup(function() {
+	xflag = false;
+	yflag = false;
+});
