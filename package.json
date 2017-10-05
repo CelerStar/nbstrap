@@ -4,7 +4,7 @@
     "nodejs": true,
     "single-instance": true,
     "window": {
-        "title": "HelloWorld",
+        "title": "NBstrap",
         "width": 800,
         "height": 600,
         "icon": "logo.png",
