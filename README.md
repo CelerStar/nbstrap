@@ -8,7 +8,7 @@ NBuilder 为了方便大家更快速的解决布局问题，编写了一个非�
 
 代码中 example 包含了示例文件，效果如下
 
-![](http://lingcreat.celerstar.com/ask/php/uploads/20170927150102LnKPzUhXN0BVACR7QQ截图20170927230044.png)
+![](http://lingcreat.celerstar.com/ask/php/uploads/201710050114352tJGj6ub7q30MqUh11.gif)
 
 下载地址
 
