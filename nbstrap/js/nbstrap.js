@@ -1,5 +1,5 @@
 /*!
- * NBstrap v2.1.0
+ * NBstrap v2.2.0
  * Copyright 2017-2018 NBuilder, Inc.
  * Licensed under MIT
  */
@@ -8,6 +8,7 @@ var nbuilderWindowHeight = 0; //窗体高度
 var nbuilderWindowObject; //窗体对象
 var nbuilderWindowMaxState = false; //大小对象
 var nbuilderWindowBoderShadowState = false;
+var nbuilderMousewheel = 'normal';
 /*
  * 名称：页面 ready 事件
  * 输入：
@@ -108,15 +109,45 @@ function nbuilder_resize() {
 	$(".nb-window").height(nbuilderWindowHeight - bodyOuterHeight); //设置最大框架高度
 }
 
-/*
- * 名称： 
- * 输入：
- * 输出：
- * 描述：
- */
-document.onselectstart = function() {
-	return false;
-}
+document.onmousewheel = function(e) {
+
+	if(e.wheelDelta == -120) {
+
+		nbuilderMousewheel = 'down';
+
+	}
+	if(e.wheelDelta == 120) {
+
+		nbuilderMousewheel = 'up';
+
+	}
+
+};
+
+$(".nb-layout").scroll(function() {
+	var divHeight = $(this).height();
+	var nScrollHeight = $(this)[0].scrollHeight;
+	var nScrollTop = $(this)[0].scrollTop;
+
+	if(nScrollTop <= 0 && nbuilderMousewheel == 'up') {
+
+		if(nbLayoutScroll && typeof(nbLayoutScroll) == "function") {
+			nbLayoutScroll($(this), "top");
+		}
+
+		nbuilderMousewheel = 'normal';
+	}
+
+
+	if( Math.ceil(nScrollTop + divHeight) >= nScrollHeight && nbuilderMousewheel == 'down') {
+
+		if(nbLayoutScroll && typeof(nbLayoutScroll) == "function") {
+			nbLayoutScroll($(this), "bottom");
+		}
+
+		nbuilderMousewheel = 'normal';
+	}
+});
 
 var xflag = false;
 var yflag = false;
