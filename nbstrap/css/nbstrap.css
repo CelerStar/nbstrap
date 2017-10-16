@@ -14,8 +14,8 @@ body::-webkit-scrollbar {
 
 html,
 body {
-	margin: 0px;
-	border: 0px;
+	margin: 0px !important;
+	border: 0px !important;
 	background: transparent;
 }
 
@@ -36,15 +36,9 @@ body {
 	bottom: 0px;
 }
 
-.nb-window {
-	width: 100%;
-	margin: 0px;
-	border: 0px;
-}
-
 .nb-layout {
-	margin: 0px;
-	border: 0px;
+	margin: 0px !important;
+	border: 0px !important;
 	position: relative;
 	overflow-y: scroll;
 	overflow-x: scroll;
